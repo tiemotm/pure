@@ -20,6 +20,6 @@ public class SpringReactApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        studentRepository.addStudent(new Student("Tiemo Timtschenko", 1234567, "titim100", "tiemotm"));
+        //studentRepository.addStudent(new Student("Tiemo Timtschenko", 1234567, "titim100", "tiemotm"));
     }
 }

@@ -15,7 +15,8 @@ public class WebController {
     @Autowired
     private StudentRepository studentRepository;
 
-    @GetMapping("/students")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping(path="/students", produces = "application/json")
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
@@ -25,8 +26,10 @@ public class WebController {
         return studentRepository.findByMatrikelnummer(matrikelnummer);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/students")
     void newStudent(@RequestBody Student newStudent) {
+        System.out.println(newStudent.toString());
         studentRepository.addStudent(newStudent);
     }
 }
