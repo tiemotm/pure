@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
+import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 
 function StudentForm() {
@@ -9,6 +10,8 @@ function StudentForm() {
         githubhandle: ""
     }
 
+    const navigate = useNavigate()
+
     const [student, setStudent] = useState(initialState)
     
     const submit = (event) => {
@@ -18,7 +21,9 @@ function StudentForm() {
             headers: {
                 "Content-Type": "application/json"
             }
-        })
+        }).then(
+            navigate('/students')
+        )
         resetStudent()
     }
 
